@@ -43,6 +43,10 @@
 
         }
 
+        .nav a {
+            color: #FFF !important;
+        }
+
         .nav span {
             cursor: pointer;
             margin-right: 30px;
@@ -87,6 +91,26 @@
             line-height: 26px;
             display: block;
             padding: 10px;
+            position: relative;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 120px;
+            height: 40px;
+            background: #FFF;
+            font-size: 18;
+            color: rgb(42, 62, 62);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        a {
+            color: rgb(42, 62, 62) !important;
         }
 
         .title {
@@ -124,31 +148,27 @@
         <div class="nav">
             <div></div>
             <div>
-                <span><a href="./assignment.html">My Assignment</a></span>
+                <span style="color: #FFF;"><a href="">My Assignment</a></span>
                 <span><a href="https://samdyc123.github.io/">About Me</a></span>
                 <span> <a href="https://samdyc123.github.io/projects">Projects</a></span>
                 <span><a href="https://samdyc123.github.io/work-experience"> Work-Experience</a></span>
                 <span><a href="https://samdyc123.github.io/contact">Contact</a></span>
+
             </div>
         </div>
     </div>
     <div class="box">
-        <ul class="fl_l">
-            <li class="active"><a href="##">About me</a></li>
-            <li><a href="##">Projects</a></li>
-            <li><a href="##">Work-Experience</a></li>
-            <li><a href="##">Contact</a></li>
 
-        </ul>
         <ul class="fl_r">
             <li style="height: 250px;">
                 <span class="title">About Me</span>
                 <p class="content">
-                    <style=" background-color:#FFF">
-                        Hi, I am Yuchen Ding, a student from the class of 2025 at Boston University. I have passion on
-                        programming, and I am
-                        <span style="margin-left: 2em;"> currently studying cs506. </span>
+                    <!-- <style=" background-color:#FFF"> -->
+                    Hi, I am Yuchen Ding, a student from the class of 2025 at Boston University. I have passion on
+                    programming, and I am
+                    <span style="margin-left: 2em;"> currently studying cs506. </span>
                 </p>
+                <p class="button"><a href="">Github Link</a></p>
             </li>
             <li id="projects" style="height: 250px;">
                 <span class="title">Projects</span>
@@ -159,6 +179,7 @@
                         <span style="margin-left: 2em;"> optimize ride matching and improve efficiency using mechine
                             learning models.</span>
                 </p>
+                <p class="button"><a href="">Github Link</a></p>
             </li>
             <li id="work-experience" style="height: 250px;">
                 <span class="title">Work-Experience</span>
@@ -169,6 +190,7 @@
                         <span style="margin-left: 2em;"> responsibilities include data processing and evalution the
                             accuracy of news categorization. </span>
                 </p>
+                <p class="button"><a href="">Github Link</a></p>
             </li>
             <li id="contact" style="height: 250px;">
                 <span class="title">Contact</span>
@@ -177,42 +199,13 @@
                         Email: samdyc@bu,edu <br>
                         <span style="margin-left: 2em;"> Phone number: +1 9735249397</span>
                 </p>
+                <p class="button"><a href="">Github Link</a></p>
             </li>
         </ul>
-        <div style="clear: both;"></div>
+
     </div>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
-    <script type="text/javascript">
-            $(function(){
-                var _line=parseInt($(window).height()/3);
-                console.log(_line);
-                $(window).scroll(function(){
-                    if ($(window).scrollTop()>590) {
-                        $('.fl_l').css({'position':'fixed','top':100})
-                    }else{
-                        $('.fl_l').css({'position':'','top':''})
-                    };
-                    $('.fl_l li').eq(0).addClass('active');
-                    $('.fl_r li').each(function(){
-                        var _target=parseInt($(this).offset().top-$(window).scrollTop()-_line);
-                        var _i=$(this).index();
-                        if (_target<=0) {
-                            $('.fl_l li').removeClass('active');
-                            $('.fl_l li').eq(_i).addClass('active');
-                        }
-                        else if($(document).height()==$(window).scrollTop()+$(window).height()){
-                            $('.fl_l li').removeClass('active');
-                            $('.fl_l li').eq($('.fl_r li').length-1).addClass('active');
-                        }
-                    });
-                });
-                $('.fl_l li').click(function(){
-                    $(this).addClass('active').siblings().removeClass('active');
-                    var _i=$(this).index();
-                     $('body, html').animate({scrollTop:$('.fl_r li').eq(_i).offset().top-_line},200);
-                });
-            });
-        </script>
+
+
 </body>
 
 </html>
